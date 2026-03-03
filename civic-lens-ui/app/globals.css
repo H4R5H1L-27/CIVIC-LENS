@@ -1,0 +1,137 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Brutalist Emergency Palette: Black, Off-white, Signal Red, Caution Yellow */
+  --background: oklch(0.07 0 0);
+  --foreground: oklch(0.95 0 0);
+  --card: oklch(0.12 0 0);
+  --card-foreground: oklch(0.95 0 0);
+  --popover: oklch(0.12 0 0);
+  --popover-foreground: oklch(0.95 0 0);
+  --primary: oklch(0.95 0 0);
+  --primary-foreground: oklch(0.07 0 0);
+  --secondary: oklch(0.18 0 0);
+  --secondary-foreground: oklch(0.95 0 0);
+  --muted: oklch(0.18 0 0);
+  --muted-foreground: oklch(0.6 0 0);
+  --accent: oklch(0.18 0 0);
+  --accent-foreground: oklch(0.95 0 0);
+  --destructive: oklch(0.55 0.25 27);
+  --destructive-foreground: oklch(0.95 0 0);
+  --border: oklch(0.3 0 0);
+  --input: oklch(0.15 0 0);
+  --ring: oklch(0.55 0.25 27);
+  --chart-1: oklch(0.55 0.25 27);
+  --chart-2: oklch(0.85 0.18 85);
+  --chart-3: oklch(0.95 0 0);
+  --chart-4: oklch(0.6 0 0);
+  --chart-5: oklch(0.35 0 0);
+  --radius: 0rem;
+
+  /* Crisis-specific tokens */
+  --crisis-red: oklch(0.55 0.25 27);
+  --crisis-red-bright: oklch(0.65 0.28 27);
+  --crisis-yellow: oklch(0.85 0.18 85);
+  --crisis-yellow-bright: oklch(0.92 0.15 90);
+  --crisis-green: oklch(0.6 0.15 145);
+  --crisis-surface: oklch(0.12 0 0);
+  --crisis-surface-elevated: oklch(0.16 0 0);
+}
+
+@theme inline {
+  --font-sans: var(--font-space-grotesk), 'Space Grotesk', sans-serif;
+  --font-mono: var(--font-jetbrains-mono), 'JetBrains Mono', monospace;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-crisis-red: var(--crisis-red);
+  --color-crisis-red-bright: var(--crisis-red-bright);
+  --color-crisis-yellow: var(--crisis-yellow);
+  --color-crisis-yellow-bright: var(--crisis-yellow-bright);
+  --color-crisis-green: var(--crisis-green);
+  --color-crisis-surface: var(--crisis-surface);
+  --color-crisis-surface-elevated: var(--crisis-surface-elevated);
+  --radius-sm: 0rem;
+  --radius-md: 0rem;
+  --radius-lg: 0rem;
+  --radius-xl: 0rem;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Pulsing red beacon animation for critical elements */
+@keyframes crisis-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+@keyframes waveform {
+  0%, 100% { height: 20%; }
+  25% { height: 80%; }
+  50% { height: 40%; }
+  75% { height: 90%; }
+}
+
+.animate-crisis-pulse {
+  animation: crisis-pulse 1.5s ease-in-out infinite;
+}
+
+.animate-scanline {
+  animation: scanline 3s linear infinite;
+}
+
+.waveform-bar {
+  animation: waveform 0.8s ease-in-out infinite;
+}
+
+.waveform-bar:nth-child(2) { animation-delay: 0.1s; }
+.waveform-bar:nth-child(3) { animation-delay: 0.2s; }
+.waveform-bar:nth-child(4) { animation-delay: 0.15s; }
+.waveform-bar:nth-child(5) { animation-delay: 0.3s; }
+.waveform-bar:nth-child(6) { animation-delay: 0.05s; }
+.waveform-bar:nth-child(7) { animation-delay: 0.25s; }
+.waveform-bar:nth-child(8) { animation-delay: 0.35s; }
+.waveform-bar:nth-child(9) { animation-delay: 0.12s; }
+.waveform-bar:nth-child(10) { animation-delay: 0.22s; }
+.waveform-bar:nth-child(11) { animation-delay: 0.08s; }
+.waveform-bar:nth-child(12) { animation-delay: 0.18s; }
+.waveform-bar:nth-child(13) { animation-delay: 0.28s; }
+.waveform-bar:nth-child(14) { animation-delay: 0.38s; }
+.waveform-bar:nth-child(15) { animation-delay: 0.13s; }
+.waveform-bar:nth-child(16) { animation-delay: 0.23s; }

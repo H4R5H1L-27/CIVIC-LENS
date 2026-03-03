@@ -1,0 +1,35 @@
+# dependencies
+node_modules/
+civic-lens-ui/node_modules/
+civic-lens-ui/.next/
+
+# environment variables
+.env
+.env.local
+civic-lens-crisis/.env
+civic-lens-ui/.env.local
+
+# SSL certificates
+certs/
+
+# Python
+__pycache__/
+*.pyc
+venv/
+.venv/
+
+# uploaded media
+civic-lens-crisis/static/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# build
+*.zip
